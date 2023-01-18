@@ -59,7 +59,7 @@ public class Bus extends Transport<DriverD> {
 
     @Override
     public void getDiagnosed() {
-        throw new RuntimeException(" Автобусы диагностику проходить не могут ");
+        throw new RuntimeException(" Автобусы диагностику проходить не могут. ");
     }
 
     @Override

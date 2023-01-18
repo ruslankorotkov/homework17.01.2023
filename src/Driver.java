@@ -1,7 +1,12 @@
+import java.awt.*;
+import java.util.LinkedList;
+
 public abstract class Driver {
     private String name;
     public boolean driverLicense;
     private String experience;
+    private LinkedList<Driver> driversList;
+
 
     public Driver(String name, boolean driverLicense, String experience) {
         if (name == null || name.isEmpty() || name.isBlank()) {
@@ -19,6 +24,7 @@ public abstract class Driver {
         } else {
             this.experience = experience;
         }
+        driversList = new LinkedList<>();
     }
 
 
@@ -44,6 +50,22 @@ public abstract class Driver {
     public abstract void stopMove();
 
     public abstract void refuel();
+
+    public boolean isDriverLicense() {
+        return driverLicense;
+    }
+
+    public void setDriverLicense(boolean driverLicense) {
+        this.driverLicense = driverLicense;
+    }
+
+    public LinkedList<Driver> getDriversList() {
+        return driversList;
+    }
+
+    public void setDriversList(LinkedList<Driver> driversList) {
+        this.driversList = driversList;
+    }
 
     @Override
     public String toString() {

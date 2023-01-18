@@ -1,10 +1,14 @@
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Calendar;
 
 public abstract class Transport<T extends Driver> implements Competing {
     private String brand;
     private String model;
     private double engineVolume;
     private T driver;
+    private ArrayList<Transport> transportsList;
+
 
     public Transport(String brand, String model, double engineVolume, T driver) {
         if (brand == null || brand.isEmpty() || brand.isBlank()) {
@@ -23,6 +27,7 @@ public abstract class Transport<T extends Driver> implements Competing {
             this.engineVolume = engineVolume;
         }
         setDriver(driver);
+        transportsList = new ArrayList<>();
     }
 
     public String getBrand() {
@@ -69,6 +74,14 @@ public abstract class Transport<T extends Driver> implements Competing {
     }
 
     public abstract void getDiagnosed();
+
+    public ArrayList<Transport> getTransportsList() {
+        return transportsList;
+    }
+
+    public void setTransportsList(ArrayList<Transport> transportsList) {
+        this.transportsList = transportsList;
+    }
 
     @Override
     public String toString() {

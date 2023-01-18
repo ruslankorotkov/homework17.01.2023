@@ -1,5 +1,5 @@
 public class DriverB extends Driver {
-    public DriverB(String name, boolean driverLicense, String experience)  {
+    public DriverB(String name, boolean driverLicense, String experience) {
         super(name, driverLicense, experience);
         if (driverLicense == true) {
             this.driverLicense = driverLicense;

@@ -49,7 +49,7 @@ public class Car extends Transport<DriverB> {
 
     @Override
     public void getDiagnosed() {
-        System.out.println(" Пройти диагностику " + getBrand());
+        System.out.println(" Пройти диагностику " + getBrand() + ". ");
     }
 
 

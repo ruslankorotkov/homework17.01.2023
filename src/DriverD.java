@@ -23,4 +23,5 @@ public class DriverD extends Driver {
     public void refuel() {
         System.out.println("Водитель категории D " + getName() + " ЗАПРАВИЛ АВТО ");
     }
+
 }
