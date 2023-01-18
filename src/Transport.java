@@ -1,16 +1,23 @@
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Calendar;
 
-public abstract class Transport<T extends Driver> implements Competing {
+public abstract class Transport<T extends Driver,A extends Mechanic> implements Competing {
     private String brand;
     private String model;
     private double engineVolume;
     private T driver;
     private ArrayList<Transport> transportsList;
+    private A mech;
 
 
-    public Transport(String brand, String model, double engineVolume, T driver) {
+    public Mechanic getMech() {
+        return mech;
+    }
+
+    public void setMech(A mech) {
+        this.mech = mech;
+    }
+
+    public Transport(String brand, String model, double engineVolume, T driver, A mech) {
         if (brand == null || brand.isEmpty() || brand.isBlank()) {
             this.brand = " default ";
         } else {
@@ -26,6 +33,7 @@ public abstract class Transport<T extends Driver> implements Competing {
         } else {
             this.engineVolume = engineVolume;
         }
+        setMech(mech);
         setDriver(driver);
         transportsList = new ArrayList<>();
     }

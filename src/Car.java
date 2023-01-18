@@ -1,5 +1,5 @@
 
-public class Car extends Transport<DriverB> {
+public class Car extends Transport<DriverB,Mechanic> {
 
     public enum BodyType {
         BODY_S("Седан"),
@@ -24,8 +24,8 @@ public class Car extends Transport<DriverB> {
 
     private BodyType bodyType;
 
-    public Car(String brand, String model, double engineVolume, DriverB driver, BodyType bodyType) {
-        super(brand, model, engineVolume, driver);
+    public Car(String brand, String model, double engineVolume, DriverB driver, BodyType bodyType,Mechanic mech) {
+        super(brand, model, engineVolume, driver, mech);
         this.bodyType = bodyType;
 
     }
@@ -79,8 +79,9 @@ public class Car extends Transport<DriverB> {
     public String toString() {
         return " ЛЕГКОВОЙ АВТОМОБИЛЬ "
                 + super.toString() +
-                " тип кузова "
-                + bodyType.getBodyType();
+                ", тип кузова "
+                + bodyType.getBodyType()+
+                ", механик: "+ getMech();
     }
 }
 
