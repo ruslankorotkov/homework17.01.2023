@@ -1,13 +1,12 @@
 import java.util.ArrayList;
 
-public abstract class Transport<T extends Driver,A extends Mechanic> implements Competing {
+public abstract class Transport<T extends Driver, A extends Mechanic> implements Competing {
     private String brand;
     private String model;
     private double engineVolume;
     private T driver;
     private ArrayList<Transport> transportsList;
     private A mech;
-
 
     public Mechanic getMech() {
         return mech;

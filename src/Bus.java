@@ -1,6 +1,6 @@
 
 
-public class Bus extends Transport<DriverD,Mechanic> {
+public class Bus extends Transport<DriverD, Mechanic> {
     public enum PassengerCapacity {
         EXTRA_SMALL("особо малая (до 10 )"),
         SMALL("малая (до 25)"),
@@ -17,14 +17,12 @@ public class Bus extends Transport<DriverD,Mechanic> {
         }
 
         private final String places;
-
-
     }
 
     private PassengerCapacity places;
 
 
-    public Bus(String brand, String model, double engineVolume, DriverD driver, Integer places,Mechanic mech) {
+    public Bus(String brand, String model, double engineVolume, DriverD driver, Integer places, Mechanic mech) {
         super(brand, model, engineVolume, driver, mech);
         if (places <= 10) {
             this.places = PassengerCapacity.EXTRA_SMALL;
@@ -38,7 +36,6 @@ public class Bus extends Transport<DriverD,Mechanic> {
             this.places = PassengerCapacity.ESPECIALLY_LARGE;
         }
     }
-
 
     @Override
 
@@ -84,10 +81,9 @@ public class Bus extends Transport<DriverD,Mechanic> {
         return places;
     }
 
-
     @Override
     public String toString() {
-        return " АВТОБУС " + super.toString() + " Вместимость " + places + " мест "+
-                ", механик: "+ getMech();
+        return " АВТОБУС " + super.toString() + " Вместимость " + places + " мест " +
+                ", механик: " + getMech();
     }
 }

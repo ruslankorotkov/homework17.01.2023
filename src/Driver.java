@@ -73,7 +73,6 @@ public abstract class Driver {
                 " ИМЯ: " + name +
                 ", ПРАВА КАТЕГОРИИ:" + driverLicense +
                 ", СТАЖ:" + experience;
-
     }
 }
 

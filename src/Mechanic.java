@@ -1,7 +1,6 @@
 import java.util.ArrayList;
+
 public class Mechanic {
-
-
     public enum AccessToWork {
         MECH_B(" работает только с легковыми авто. "),
         MECH_C(" работает только с грузовыми авто. "),

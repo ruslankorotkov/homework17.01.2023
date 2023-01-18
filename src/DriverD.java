@@ -11,7 +11,6 @@ public class DriverD extends Driver {
     @Override
     public void startMove() {
         System.out.println("Водитель категории D " + getName() + " НАЧАЛ ДВИЖЕНИЕ ");
-
     }
 
     @Override
