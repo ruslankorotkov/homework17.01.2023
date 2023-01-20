@@ -1,5 +1,5 @@
 public class Main {
-    public static void main(String[] args) throws CantDriveException {
+    public static void main(String[] args) {
         DriverB ivan = new DriverB(" Иван ", true, " 6 лет ");
         DriverB vova = new DriverB(" Вова ", true, " 32 лет ");
         DriverB shuric = new DriverB(" Шурик ", true, " 4 лет ");
@@ -41,7 +41,7 @@ public class Main {
 //        kamaz.printInfo();
 //        kamaz.printType();
         autoDiagnosed(audi, kamaz, paz);
-        rightsCheckDrivers(vova, oleg, boris);
+        rightsCheckDrivers(vova, oleg, oleg,nikita,boris,ilia);
         getMechList(luka, foma, petr, misha);
         getDriversList(ivan, shuric, egor, nikita, artur, ilia, boris, nik, oleg, vova, zuric);
         getTransportsList(lada, audi, bmv, kia, hyundai, ural, paz, mercedes, kamaz, zil, man);
@@ -89,7 +89,7 @@ public class Main {
         }
     }
 
-    public static void rightsCheckDrivers(Driver... driver) throws CantDriveException {
+    public static void rightsCheckDrivers(Driver... driver)  {
         int count = 0;
         try {
             for (Driver element : driver) {

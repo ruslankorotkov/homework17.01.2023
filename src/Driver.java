@@ -43,9 +43,7 @@ public abstract class Driver {
 
     public abstract void refuel();
     public boolean isDriverLicense() throws CantDriveException {
-        if (driverLicense == true) {
-            this.driverLicense = driverLicense;
-        } else if (driverLicense == false ) {
+        if (!driverLicense) {
             throw new CantDriveException(" Необходимо указать тип прав! .",this);
         }
         return driverLicense;
