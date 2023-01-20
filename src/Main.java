@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Main {
     public static void main(String[] args) throws CantDriveException {
         DriverB ivan = new DriverB(" Иван ", true, " 6 лет ");
@@ -44,7 +42,7 @@ public class Main {
 //        kamaz.printType();
         autoDiagnosed(audi, kamaz, paz);
         rightsCheckDrivers(vova, oleg, boris);
-        getMechanicsList(luka, foma, petr, misha);
+        getMechList(luka, foma, petr, misha);
         getDriversList(ivan, shuric, egor, nikita, artur, ilia, boris, nik, oleg, vova, zuric);
         getTransportsList(lada, audi, bmv, kia, hyundai, ural, paz, mercedes, kamaz, zil, man);
         System.out.println(" Автомобиль: " + audi.getBrand() + " Водитель: " + audi.getDriver().getName() +
@@ -52,7 +50,7 @@ public class Main {
                 " и ему помогает Механик: " + misha.getNameMechanic() + " он " + misha.getAccessToWork());
     }
 
-    public static void getMechanicsList(Mechanic... mechanics) {
+    public static void getMechList(Mechanic... mechanics) {
         System.out.println(" Механики список ");
         for (Mechanic element : mechanics) {
             element.getNameMechanic();
