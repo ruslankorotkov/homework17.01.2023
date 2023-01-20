@@ -99,7 +99,6 @@ public abstract class Transport<T extends Driver> implements Competing {
                 ", модель: " + model + '\'' +
                 ", объём двигателя: " + engineVolume +
                 ", водитель: " + driver +
-                ", mechanicsList=" + mechanicsList +
                 ", механик: " + mechanic +
                 '}';
     }
