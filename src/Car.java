@@ -1,5 +1,5 @@
 
-public class Car extends Transport<DriverB, Mechanic> {
+public class Car extends Transport<DriverB> {
 
     public enum BodyType {
         BODY_S("Седан"),
@@ -24,10 +24,9 @@ public class Car extends Transport<DriverB, Mechanic> {
 
     private BodyType bodyType;
 
-    public Car(String brand, String model, double engineVolume, DriverB driver, BodyType bodyType, Mechanic mech) {
-        super(brand, model, engineVolume, driver, mech);
+    public Car(String brand, String model, double engineVolume, DriverB driver, BodyType bodyType) {
+        super(brand, model, engineVolume, driver);
         this.bodyType = bodyType;
-
     }
 
     @Override
@@ -48,24 +47,27 @@ public class Car extends Transport<DriverB, Mechanic> {
     }
 
     @Override
-    public void getDiagnosed() {
-        System.out.println(" Пройти диагностику " + getBrand() + ". ");
+    public void diagnosed() {
+        System.out.println(" Проходит диагностику " + getBrand());
     }
 
 
     @Override
     public void pitStop() {
         System.out.println(" ПИТ-СТОП у легковой машины. " + getBrand());
+
     }
 
     @Override
     public void bestTimeCycle() {
         System.out.println("  ЛУЧШЕЕ ВРЕМЯ КРУГА у легковой машины. " + getBrand());
+
     }
 
     @Override
     public void maxSpeed() {
         System.out.println(" МАКСИМАЛЬНАЯ СКОРОСТЬ у легковой машины. " + getBrand());
+
     }
 
     public BodyType getBodyType() {
@@ -76,9 +78,8 @@ public class Car extends Transport<DriverB, Mechanic> {
     public String toString() {
         return " ЛЕГКОВОЙ АВТОМОБИЛЬ "
                 + super.toString() +
-                ", тип кузова "
-                + bodyType.getBodyType() +
-                ", механик: " + getMech();
+                " тип кузова "
+                + bodyType.getBodyType();
     }
 }
 

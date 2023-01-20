@@ -1,6 +1,6 @@
 
 
-public class Bus extends Transport<DriverD, Mechanic> {
+public class Bus extends Transport<DriverD> {
     public enum PassengerCapacity {
         EXTRA_SMALL("особо малая (до 10 )"),
         SMALL("малая (до 25)"),
@@ -17,13 +17,15 @@ public class Bus extends Transport<DriverD, Mechanic> {
         }
 
         private final String places;
+
+
     }
 
     private PassengerCapacity places;
 
 
-    public Bus(String brand, String model, double engineVolume, DriverD driver, Integer places, Mechanic mech) {
-        super(brand, model, engineVolume, driver, mech);
+    public Bus(String brand, String model, double engineVolume, DriverD driver, Integer places) {
+        super(brand, model, engineVolume, driver);
         if (places <= 10) {
             this.places = PassengerCapacity.EXTRA_SMALL;
         } else if (places <= 25) {
@@ -36,6 +38,7 @@ public class Bus extends Transport<DriverD, Mechanic> {
             this.places = PassengerCapacity.ESPECIALLY_LARGE;
         }
     }
+
 
     @Override
 
@@ -53,10 +56,9 @@ public class Bus extends Transport<DriverD, Mechanic> {
         System.out.println("Данные по транспортному средству АВТОБУС " + super.toString() + " вместимость " + places + " .");
     }
 
-
     @Override
-    public void getDiagnosed() {
-        throw new RuntimeException(" Автобусы диагностику проходить не могут. ");
+    public void diagnosed() {
+        throw new RuntimeException(" Автобусы диагностику проходить не могут ");
     }
 
     @Override
@@ -81,9 +83,9 @@ public class Bus extends Transport<DriverD, Mechanic> {
         return places;
     }
 
+
     @Override
     public String toString() {
-        return " АВТОБУС " + super.toString() + " Вместимость " + places + " мест " +
-                ", механик: " + getMech();
+        return " АВТОБУС " + super.toString() + " Вместимость " + places + " мест ";
     }
 }

@@ -1,31 +1,13 @@
 import java.util.ArrayList;
 
 public class Mechanic {
-    public enum AccessToWork {
-        MECH_B(" работает только с легковыми авто. "),
-        MECH_C(" работает только с грузовыми авто. "),
-        MECH_D(" работает только с автобусами. "),
-        MECH_B_C_D(" работает со всеми автомобилями. ");
-
-        public String getAccessToWork() {
-            return accessToWork;
-        }
-
-        AccessToWork(String accessToWork) {
-            this.accessToWork = accessToWork;
-        }
-
-        private final String accessToWork;
-
-    }
-
     private String nameMechanic;
     private String companyWork;
-    private AccessToWork accessToWork;
+    private String accessToWork;
     private ArrayList<Mechanic> mechanicsList;
 
 
-    public Mechanic(String nameMechanic, String companyWork, AccessToWork accessToWork) {
+    public Mechanic(String nameMechanic, String companyWork, String accessToWork) {
         if (nameMechanic != null && !nameMechanic.isEmpty() && !nameMechanic.isBlank()) {
             this.nameMechanic = nameMechanic;
         } else {
@@ -65,11 +47,11 @@ public class Mechanic {
         this.companyWork = companyWork;
     }
 
-    public AccessToWork getAccessToWork() {
+    public String getAccessToWork() {
         return accessToWork;
     }
 
-    public void setAccessToWork(AccessToWork accessToWork) {
+    public void setAccessToWork(String accessToWork) {
         this.accessToWork = accessToWork;
     }
 
@@ -86,6 +68,6 @@ public class Mechanic {
         return " Механик -" +
                 " имя и фамилия: " + nameMechanic +
                 ", компания, в которой он работает:" + companyWork +
-                ", допуск: " + accessToWork.accessToWork;
+                ", допуск: " + accessToWork;
     }
 }

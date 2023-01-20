@@ -1,5 +1,5 @@
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CantDriveException {
         DriverB ivan = new DriverB(" Иван ", true, " 6 лет ");
         DriverB vova = new DriverB(" Вова ", true, " 32 лет ");
         DriverB shuric = new DriverB(" Шурик ", true, " 4 лет ");
@@ -11,21 +11,21 @@ public class Main {
         DriverD boris = new DriverD(" Борис ", true, " 7 лет ");
         DriverD ilia = new DriverD(" Илья ", true, " 11 лет ");
         DriverD artur = new DriverD(" Артур ", true, " 5 лет ");
-        Mechanic foma = new Mechanic("Фома Кузькин", "Болты и Гайки", Mechanic.AccessToWork.MECH_B);
-        Mechanic luka = new Mechanic("Лука Вижинков", "Тяп Ляп сервис", Mechanic.AccessToWork.MECH_C);
-        Mechanic petr = new Mechanic("Пётр Пучёк", "АвтоРемонт", Mechanic.AccessToWork.MECH_D);
-        Mechanic misha = new Mechanic("Миша Губайдулин", "Ездит как НАДО", Mechanic.AccessToWork.MECH_B_C_D);
-        Car lada = new Car("Lada", "Granta", 1.7, ivan, Car.BodyType.BODY_S, foma);
-        Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, vova, Car.BodyType.BODY_V, foma);
-        Car bmv = new Car("BMW", "Z8", 3.0, shuric, Car.BodyType.BODY_K, foma);
-        Car kia = new Car("Kia", "Sportage 4-го поколения", 2.4, nikita, Car.BodyType.BODY_U, misha);
-        Bus hyundai = new Bus("Hyundai", "Avante", 1.6, nik, 61, petr);
-        Bus ural = new Bus("Урал", "Next", 20.22, boris, 24, petr);
-        Bus paz = new Bus(" Паз", "Вектор Next", 20.20, artur, 23, petr);
-        Bus mercedes = new Bus("Mercedes-Benz", "Tourismo", 20.21, ilia, 120, misha);
-        Truck kamaz = new Truck("Камаз", "компас", 12.45, zuric, 2.5, luka);
-        Truck zil = new Truck("Зил", "43", 24.12, egor, 23.5, luka);
-        Truck man = new Truck("Man", "TGL", 12.45, oleg, 13.3, misha);
+        Mechanic foma = new Mechanic("Фома Кузькин", "Болты и Гайки"," Ремонтирует легковые авто. " );
+        Mechanic luka = new Mechanic("Лука Вижинков", "Тяп Ляп сервис"," Ремонтирует грузовые авто. " );
+        Mechanic petr = new Mechanic("Пётр Пучёк", "АвтоРемонт", " Ремонтирует автобусы. ");
+        Mechanic misha = new Mechanic("Миша Губайдулин", "Ездит как НАДО", " Ремонтирует всё.");
+        Car lada = new Car("Lada", "Granta", 1.7, ivan, Car.BodyType.BODY_S);
+        Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, vova, Car.BodyType.BODY_V);
+        Car bmv = new Car("BMW", "Z8", 3.0, shuric, Car.BodyType.BODY_K);
+        Car kia = new Car("Kia", "Sportage 4-го поколения", 2.4, nikita, Car.BodyType.BODY_U);
+        Bus hyundai = new Bus("Hyundai", "Avante", 1.6, nik, 61);
+        Bus ural = new Bus("Урал", "Next", 20.22, boris, 24);
+        Bus paz = new Bus(" Паз", "Вектор Next", 20.20, artur, 23);
+        Bus mercedes = new Bus("Mercedes-Benz", "Tourismo", 20.21, ilia, 120);
+        Truck kamaz = new Truck("Камаз", "компас", 12.45, zuric, 2.5);
+        Truck zil = new Truck("Зил", "43", 24.12, egor, 23.5);
+        Truck man = new Truck("Man", "TGL", 12.45, oleg, 13.3);
 
         System.out.println(" водитель " + boris.getName() + " управляет автомобилем " + mercedes + " и будет участвовать в заезде. ");
         System.out.println(" водитель " + oleg.getName() + " управляет автомобилем " + kamaz + " и будет участвовать в заезде. ");
@@ -39,19 +39,14 @@ public class Main {
 //        audi.printType();
 //        kamaz.printInfo();
 //        kamaz.printType();
-//        getDiagnosed(audi, kamaz, paz);
-//        System.out.println(foma);
-//        luka.getMechanicsList().add(foma);
-//        luka.getMechanicsList().add(petr);
-//        luka.getMechanicsList().add(misha);
-//        luka.getMechanicsList().add(luka);
-//        System.out.println(luka.getMechanicsList());
+        autoDiagnosed(audi, kamaz, paz);
+        rightsCheckDrivers(vova, oleg, boris);
         getMechanicsList(luka, foma, petr, misha);
         getDriversList(ivan, shuric, egor, nikita, artur, ilia, boris, nik, oleg, vova, zuric);
         getTransportsList(lada, audi, bmv, kia, hyundai, ural, paz, mercedes, kamaz, zil, man);
         System.out.println(" Автомобиль: " + audi.getBrand() + " Водитель: " + audi.getDriver().getName() +
-                " у него есть Механик: " + foma.getNameMechanic() + " он " + foma.getAccessToWork().getAccessToWork() +
-                " и ему помогает Механик: " + misha.getNameMechanic() + " он " + misha.getAccessToWork().getAccessToWork());
+                " у него есть Механик: " + foma.getNameMechanic() + " он " + foma.getAccessToWork() +
+                " и ему помогает Механик: " + misha.getNameMechanic() + " он " + misha.getAccessToWork());
     }
 
     public static void getMechanicsList(Mechanic... mechanics) {
@@ -75,19 +70,33 @@ public class Main {
             System.out.println(" Автомобили из списка transportsList : " + element.getClass() + " модель " + element.getBrand());
         }
     }
+    public static void autoDiagnosed(Transport... auto) {
+        for (Transport element : auto) {
+            try {
+                element.diagnosed();
+            } catch (RuntimeException e) {
+                System.out.println(" Произошла ошибка ");
+                System.out.println(e.getMessage());
+            } finally {
+                System.out.println("Проверка завершена");
+            }
+        }
+    }
 
-//    public static void getDiagnosed(Transport... auto) {
-//        for (Transport element : auto) {
-//            try {
-//                element.getDiagnosed();
-//            } catch (RuntimeException e) {
-//                System.out.println(" Произошла ошибка " + element);
-//                System.out.println(e.getMessage());
-//            } finally {
-//                System.out.println("/Проверка завершена/");
-//            }
-//        }
-//    }
+    public static void rightsCheckDrivers(Driver... driver) throws CantDriveException {
+        int count = 0;
+        try {
+            for (Driver element : driver) {
+                element.isDriverLicense();
+                count++;
+            }
+        } catch (CantDriveException e) {
+            System.out.println(" Произошла ошибка водитель " + e.getDriver().getName() + "  не имеет прав.");
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("Проверка завершена. Из рассмотренных. " + count + " водителей имеют права.");
+        }
+    }
 }
 
 

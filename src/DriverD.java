@@ -1,16 +1,13 @@
 public class DriverD extends Driver {
     public DriverD(String name, boolean driverLicense, String experience) {
         super(name, driverLicense, experience);
-        if (driverLicense == true) {
-            this.driverLicense = driverLicense;
-        } else if (driverLicense == false) {
-            throw new RuntimeException(" Необходимо указать тип прав! .");
-        }
+        this.driverLicense = driverLicense;
     }
 
     @Override
     public void startMove() {
         System.out.println("Водитель категории D " + getName() + " НАЧАЛ ДВИЖЕНИЕ ");
+
     }
 
     @Override

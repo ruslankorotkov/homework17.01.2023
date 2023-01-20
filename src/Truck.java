@@ -1,6 +1,4 @@
-import java.io.File;
-
-public class Truck extends Transport<DriverC, Mechanic> {
+public class Truck extends Transport<DriverC> {
     public enum LoadCapacity {
         N1("с полной массой до 3,5 тонн"),
         N2("с полной массой свыше 3,5 до 12 тонн"),
@@ -19,8 +17,9 @@ public class Truck extends Transport<DriverC, Mechanic> {
 
     private LoadCapacity capacity;
 
-    public Truck(String brand, String model, double engineVolume, DriverC driver, double capacity, Mechanic mech) {
-        super(brand, model, engineVolume, driver, mech);
+
+    public Truck(String brand, String model, double engineVolume, DriverC driver, double capacity) {
+        super(brand, model, engineVolume, driver);
         if (capacity <= 3.5) {
             this.capacity = LoadCapacity.N1;
         } else if (capacity <= 12) {
@@ -49,8 +48,8 @@ public class Truck extends Transport<DriverC, Mechanic> {
     }
 
     @Override
-    public void getDiagnosed() {
-        System.out.println(" Пройти диагностику " + getBrand() + ". ");
+    public void diagnosed() {
+        System.out.println(" Проходит диагностику " + getBrand());
     }
 
     @Override
@@ -74,8 +73,7 @@ public class Truck extends Transport<DriverC, Mechanic> {
     @Override
     public String toString() {
         return " ГРУЗОВИК " + super.toString() +
-                " грузоподъёмность " + capacity.getCapacity() +
-                ", механик: " + getMech();
+                " грузоподъёмность " + capacity.getCapacity();
     }
 }
 
