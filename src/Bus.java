@@ -17,13 +17,12 @@ public class Bus extends Transport<DriverD> {
         }
 
         private final String places;
-
-
     }
 
     private PassengerCapacity places;
-    public Bus(String brand, String model, double engineVolume, DriverD driver, ArrayList<Transport> mechanicsList, Integer places) {
-        super(brand, model, engineVolume, driver, mechanicsList);
+
+    public Bus(String brand, String model, double engineVolume, DriverD driver, Mechanic mechanic, Integer places) {
+        super(brand, model, engineVolume, driver, mechanic);
         if (places <= 10) {
             this.places = PassengerCapacity.EXTRA_SMALL;
         } else if (places <= 25) {
@@ -36,7 +35,6 @@ public class Bus extends Transport<DriverD> {
             this.places = PassengerCapacity.ESPECIALLY_LARGE;
         }
     }
-
 
     @Override
 

@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 
-public class Mechanic <Transport> {
+public class Mechanic<Transport> {
     private String nameMechanic;
     private String companyWork;
     private String accessToWork;
+
     public Mechanic(String nameMechanic, String companyWork, String accessToWork) {
         if (nameMechanic != null && !nameMechanic.isEmpty() && !nameMechanic.isBlank()) {
             this.nameMechanic = nameMechanic;
@@ -53,6 +54,7 @@ public class Mechanic <Transport> {
     public void setAccessToWork(String accessToWork) {
         this.accessToWork = accessToWork;
     }
+
     @Override
     public String toString() {
         return " Механик -" +

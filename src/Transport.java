@@ -5,19 +5,10 @@ public abstract class Transport<T extends Driver> implements Competing {
     private String model;
     private double engineVolume;
     private T driver;
-
-    public Transport(String brand, String model, double engineVolume, T driver, ArrayList<Transport> mechanicsList) {
-        this.brand = brand;
-        this.model = model;
-        this.engineVolume = engineVolume;
-        this.driver = driver;
-        this.mechanicsList = mechanicsList;
-    }
-
     private ArrayList<Transport> mechanicsList;
+    private Mechanic mechanic;
 
-
-    public Transport(String brand, String model, double engineVolume, T driver) {
+    public Transport(String brand, String model, double engineVolume, T driver, Mechanic mechanic) {
         if (brand == null || brand.isEmpty() || brand.isBlank()) {
             this.brand = " default ";
         } else {
@@ -35,6 +26,7 @@ public abstract class Transport<T extends Driver> implements Competing {
         }
         setDriver(driver);
         mechanicsList = new ArrayList<>(12);
+        this.mechanic = mechanic;
     }
 
     public String getBrand() {
@@ -91,12 +83,13 @@ public abstract class Transport<T extends Driver> implements Competing {
 
     @Override
     public String toString() {
-        return "Transport{" +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", engineVolume=" + engineVolume +
-                ", driver=" + driver +
+        return " Автомобиль " +
+                " марка: " + brand + '\'' +
+                ", модель: " + model + '\'' +
+                ", объём двигателя: " + engineVolume +
+                ", водитель: " + driver +
                 ", mechanicsList=" + mechanicsList +
+                ", механик: " + mechanic +
                 '}';
     }
 }

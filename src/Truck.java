@@ -19,8 +19,8 @@ public class Truck extends Transport<DriverC> {
 
     private LoadCapacity capacity;
 
-    public Truck(String brand, String model, double engineVolume, DriverC driver, ArrayList<Transport> mechanicsList, double capacity) {
-        super(brand, model, engineVolume, driver, mechanicsList);
+    public Truck(String brand, String model, double engineVolume, DriverC driver, Mechanic mechanic, double capacity) {
+        super(brand, model, engineVolume, driver, mechanic);
         if (capacity <= 3.5) {
             this.capacity = LoadCapacity.N1;
         } else if (capacity <= 12) {
