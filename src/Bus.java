@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 
 public class Bus extends Transport<DriverD> {
     public enum PassengerCapacity {
@@ -22,10 +22,8 @@ public class Bus extends Transport<DriverD> {
     }
 
     private PassengerCapacity places;
-
-
-    public Bus(String brand, String model, double engineVolume, DriverD driver, Integer places) {
-        super(brand, model, engineVolume, driver);
+    public Bus(String brand, String model, double engineVolume, DriverD driver, ArrayList<Transport> mechanicsList, Integer places) {
+        super(brand, model, engineVolume, driver, mechanicsList);
         if (places <= 10) {
             this.places = PassengerCapacity.EXTRA_SMALL;
         } else if (places <= 25) {

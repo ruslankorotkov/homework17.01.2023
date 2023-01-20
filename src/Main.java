@@ -11,21 +11,21 @@ public class Main {
         DriverD boris = new DriverD(" Борис ", true, " 7 лет ");
         DriverD ilia = new DriverD(" Илья ", true, " 11 лет ");
         DriverD artur = new DriverD(" Артур ", true, " 5 лет ");
-        Mechanic foma = new Mechanic("Фома Кузькин", "Болты и Гайки"," Ремонтирует легковые авто. " );
-        Mechanic luka = new Mechanic("Лука Вижинков", "Тяп Ляп сервис"," Ремонтирует грузовые авто. " );
-        Mechanic petr = new Mechanic("Пётр Пучёк", "АвтоРемонт", " Ремонтирует автобусы. ");
-        Mechanic misha = new Mechanic("Миша Губайдулин", "Ездит как НАДО", " Ремонтирует всё.");
-        Car lada = new Car("Lada", "Granta", 1.7, ivan, Car.BodyType.BODY_S);
-        Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, vova, Car.BodyType.BODY_V);
-        Car bmv = new Car("BMW", "Z8", 3.0, shuric, Car.BodyType.BODY_K);
-        Car kia = new Car("Kia", "Sportage 4-го поколения", 2.4, nikita, Car.BodyType.BODY_U);
-        Bus hyundai = new Bus("Hyundai", "Avante", 1.6, nik, 61);
-        Bus ural = new Bus("Урал", "Next", 20.22, boris, 24);
-        Bus paz = new Bus(" Паз", "Вектор Next", 20.20, artur, 23);
-        Bus mercedes = new Bus("Mercedes-Benz", "Tourismo", 20.21, ilia, 120);
-        Truck kamaz = new Truck("Камаз", "компас", 12.45, zuric, 2.5);
-        Truck zil = new Truck("Зил", "43", 24.12, egor, 23.5);
-        Truck man = new Truck("Man", "TGL", 12.45, oleg, 13.3);
+        Mechanic foma = new Mechanic("Фома Кузькин", "Болты и Гайки"," ремонтирует легковые авто " );
+        Mechanic luka = new Mechanic("Лука Вижинков", "Тяп Ляп сервис"," ремонтирует грузовые авто " );
+        Mechanic petr = new Mechanic("Пётр Пучёк", "АвтоРемонт", " ремонтирует автобусы ");
+        Mechanic misha = new Mechanic("Миша Губайдулин", "Ездит как НАДО", " ремонтирует все виды автомобилей ");
+        Car lada = new Car("Lada", "Granta", 1.7, ivan, ,Car.BodyType.BODY_S);
+        Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, vova, ,Car.BodyType.BODY_V);
+        Car bmv = new Car("BMW", "Z8", 3.0, shuric,,Car.BodyType.BODY_K);
+        Car kia = new Car("Kia", "Sportage 4-го поколения", 2.4, nikita, ,Car.BodyType.BODY_U);
+        Bus hyundai = new Bus("Hyundai", "Avante", 1.6, nik, ,61);
+        Bus ural = new Bus("Урал", "Next", 20.22, boris, ,24);
+        Bus paz = new Bus(" Паз", "Вектор Next", 20.20, artur, ,23);
+        Bus mercedes = new Bus("Mercedes-Benz", "Tourismo", 20.21, ilia, ,120);
+        Truck kamaz = new Truck("Камаз", "компас", 12.45, zuric, ,2.5);
+        Truck zil = new Truck("Зил", "43", 24.12, egor, foma,23.5);
+        Truck man = new Truck("Man", "TGL", 12.45, oleg, ,13.3);
 
         System.out.println(" водитель " + boris.getName() + " управляет автомобилем " + mercedes + " и будет участвовать в заезде. ");
         System.out.println(" водитель " + oleg.getName() + " управляет автомобилем " + kamaz + " и будет участвовать в заезде. ");
@@ -50,24 +50,28 @@ public class Main {
     }
 
     public static void getMechanicsList(Mechanic... mechanics) {
+        System.out.println(" Механики список ");
         for (Mechanic element : mechanics) {
             element.getNameMechanic();
-            System.out.println(" Механик из списка mechanicsList : " + element.getNameMechanic());
+            System.out.println(" Механик : " + element.getNameMechanic());
         }
     }
 
     public static void getDriversList(Driver... drivers) {
+        System.out.println("Водители список ");
         for (Driver element : drivers) {
             element.getName();
-            System.out.println(" Водители из списка driversList : " + element.getName());
+            System.out.println(" Водитель : " + element.getName());
         }
     }
 
     public static void getTransportsList(Transport... transports) {
+        System.out.println(" Автомобили список ");
+
         for (Transport element : transports) {
             element.getClass();
             element.getBrand();
-            System.out.println(" Автомобили из списка transportsList : " + element.getClass() + " модель " + element.getBrand());
+            System.out.println(" Автомобиль : " + element.getClass() + " модель " + element.getBrand());
         }
     }
     public static void autoDiagnosed(Transport... auto) {

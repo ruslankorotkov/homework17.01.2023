@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Car extends Transport<DriverB> {
 
@@ -24,8 +25,8 @@ public class Car extends Transport<DriverB> {
 
     private BodyType bodyType;
 
-    public Car(String brand, String model, double engineVolume, DriverB driver, BodyType bodyType) {
-        super(brand, model, engineVolume, driver);
+    public Car(String brand, String model, double engineVolume, DriverB driver, ArrayList<Transport> mechanicsList, BodyType bodyType) {
+        super(brand, model, engineVolume, driver, mechanicsList);
         this.bodyType = bodyType;
     }
 
