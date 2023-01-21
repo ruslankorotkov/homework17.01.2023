@@ -51,8 +51,6 @@ public class Main {
         System.out.println(" Бригада 2 " + brigada2.toString());
         System.out.println(" Бригада 3 " + brigada3.toString());
         System.out.println(lada);
-
-
 //        System.out.println(" водитель " + boris.getName() + " управляет автомобилем " + mercedes + " и будет участвовать в заезде. ");
 //        System.out.println(" водитель " + oleg.getName() + " управляет автомобилем " + kamaz + " и будет участвовать в заезде. ");
 //        System.out.println(" водитель" + ivan.getName() + " управляет автомобилем " + lada + " и будет участвовать в заезде. ");
@@ -68,8 +66,9 @@ public class Main {
 //        autoDiagnosed(audi, kamaz, paz, ural, kia);
 //        rightsCheckDrivers(vova, oleg, oleg, nikita, boris, ilia);
 //        getMechList(luka, foma, petr, misha);
-//        getDriversList(ivan, shuric, egor, nikita, artur, ilia, boris, nik, oleg, vova, zuric);
-//        getTransportsList(lada, audi, bmv, kia, hyundai, ural, paz, mercedes, kamaz, zil, man);
+        getDriversList(ivan, shuric, egor, nikita, artur, ilia, boris, nik, oleg, vova, zuric);
+        getTransportsList(lada, audi, bmv, kia, hyundai, ural, paz, mercedes, kamaz, zil, man);
+        getMechList(luka, misha, petr, foma);
 //        System.out.println(foma);
 //        System.out.println(luka);
 //        System.out.println(petr);
@@ -77,32 +76,38 @@ public class Main {
 
     }
 
-//    public static void getMechList(Mechanic... mechanics) {
-//        System.out.println(" Механики список ");
-//        for (Mechanic element : mechanics) {
-//            element.getNameMechanic();
-//            System.out.println(" Механик : " + element.getNameMechanic());
-//        }
-//    }
-//
-//    public static void getDriversList(Driver... drivers) {
-//        System.out.println("Водители список ");
-//        for (Driver element : drivers) {
-//            element.getName();
-//            System.out.println(" Водитель : " + element.getName());
-//        }
-//    }
-//
-//    public static void getTransportsList(Transport... transports) {
-//        System.out.println(" Автомобили список ");
-//
-//        for (Transport element : transports) {
-//            element.getClass();
-//            element.getBrand();
-//            System.out.println(" Автомобиль : " + element.getClass() + " модель " + element.getBrand());
-//        }
-//    }
-//
+    public static void getMechList(Mechanic... mechanics) {
+        System.out.println(" Механики список ");
+        ArrayList<Mechanic> mechanicssList;
+        mechanicssList = new ArrayList<>();
+        for (Mechanic element : mechanics) {
+            mechanicssList.add(element);
+        }
+        System.out.println("  mechanicssList: " + mechanicssList);
+    }
+
+    public static void getDriversList(Driver... drivers) {
+        System.out.println("Водители список ");
+        ArrayList<Driver> driversList;
+        driversList = new ArrayList<>();
+        for (Driver element : drivers) {
+            driversList.add(element);
+        }
+        System.out.println("  driversList: " + driversList);
+    }
+
+
+    public static void getTransportsList(Transport... transports) {
+        System.out.println(" Автомобили список ");
+        ArrayList<Transport> transportsList;
+        transportsList = new ArrayList<>();
+
+        for (Transport element : transports) {
+            transportsList.add(element);
+        }
+        System.out.println("  transportsList: " + transportsList);
+    }
+
 //    public static void autoDiagnosed(Transport... auto) {
 //        System.out.println(" Прохождение машинами диагностики ");
 //        for (Transport element : auto) {
