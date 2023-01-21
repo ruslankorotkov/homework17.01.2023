@@ -25,8 +25,8 @@ public abstract class Transport<T extends Driver> implements Competing {
         }
         setDriver(driver);
         this.mechanics = mechanics;
-
     }
+
     public String getBrand() {
         return brand;
     }
@@ -66,6 +66,7 @@ public abstract class Transport<T extends Driver> implements Competing {
     public void setMechanics(ArrayList<Mechanic> mechanics) {
         this.mechanics = mechanics;
     }
+
     public abstract void startMoving();
 
     public abstract void stopMoving();

@@ -14,7 +14,7 @@ public class Main {
         DriverD boris = new DriverD(" Борис ", false, " 7 лет ");
         DriverD ilia = new DriverD(" Илья ", true, " 11 лет ");
         DriverD artur = new DriverD(" Артур ", true, " 5 лет ");
-        Car lada = new Car("Lada", "Granta", 1.7, ivan, , Car.BodyType.BODY_S);
+        Car lada = new Car("Lada", "Granta", 1.7, ivan,null, Car.BodyType.BODY_S);
         Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, vova, null,Car.BodyType.BODY_V);
         Car bmv = new Car("BMW", "Z8", 3.0, shuric,null, Car.BodyType.BODY_K);
         Car kia = new Car("Kia", "Sportage 4-го поколения", 2.4, nikita, null,Car.BodyType.BODY_U);
