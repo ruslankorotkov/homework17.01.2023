@@ -14,33 +14,43 @@ public class Main {
         DriverD boris = new DriverD(" Борис ", false, " 7 лет ");
         DriverD ilia = new DriverD(" Илья ", true, " 11 лет ");
         DriverD artur = new DriverD(" Артур ", true, " 5 лет ");
-        Car lada = new Car("Lada", "Granta", 1.7, ivan,null, Car.BodyType.BODY_S);
-        Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, vova, null,Car.BodyType.BODY_V);
-        Car bmv = new Car("BMW", "Z8", 3.0, shuric,null, Car.BodyType.BODY_K);
-        Car kia = new Car("Kia", "Sportage 4-го поколения", 2.4, nikita, null,Car.BodyType.BODY_U);
-        Bus hyundai = new Bus("Hyundai", "Avante", 1.6, nik, null,61);
-        Bus ural = new Bus("Урал", "Next", 20.22, boris, null,24);
-        Bus paz = new Bus(" Паз", "Вектор Next", 20.20, artur, null,23);
-        Bus mercedes = new Bus("Mercedes-Benz", "Tourismo", 20.21, ilia, null,120);
-        Truck kamaz = new Truck("Камаз", "компас", 12.45, zuric, null,2.5);
-        Truck zil = new Truck("Зил", "43", 24.12, egor, null,23.5);
-        Truck man = new Truck("Man", "TGL", 12.45, oleg, null,13.3);
         Mechanic foma = new Mechanic<Car>("Фома Кузькин", "Болты и Гайки", " ремонтирует легковые авто ");
         Mechanic luka = new Mechanic<Truck>("Лука Вижинков", "Тяп Ляп сервис", " ремонтирует грузовые авто ");
         Mechanic petr = new Mechanic<Bus>("Пётр Пучёк", "АвтоРемонт", " ремонтирует автобусы ");
         Mechanic misha = new Mechanic<Transport>("Миша Губайдулин", "Ездит как НАДО", " ремонтирует все виды автомобилей ");
+        ArrayList<Mechanic> brigada1;
+        brigada1 = new ArrayList<>(3);
+        brigada1.add(foma);
+        brigada1.add(misha);
+        ArrayList<Mechanic> brigada2;
+        brigada2 = new ArrayList<>(3);
+        brigada2.add(luka);
+        brigada2.add(misha);
+        ArrayList<Mechanic> brigada3;
+        brigada3 = new ArrayList<>(3);
+        brigada3.add(petr);
+        brigada3.add(misha);
+        Car lada = new Car("Lada", "Granta", 1.7, ivan, brigada1, Car.BodyType.BODY_S);
+        Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, vova, brigada1, Car.BodyType.BODY_V);
+        Car bmv = new Car("BMW", "Z8", 3.0, shuric, brigada1, Car.BodyType.BODY_K);
+        Car kia = new Car("Kia", "Sportage 4-го поколения", 2.4, nikita, brigada1, Car.BodyType.BODY_U);
+        Bus hyundai = new Bus("Hyundai", "Avante", 1.6, nik, brigada3, 61);
+        Bus ural = new Bus("Урал", "Next", 20.22, boris, brigada3, 24);
+        Bus paz = new Bus(" Паз", "Вектор Next", 20.20, artur, brigada3, 23);
+        Bus mercedes = new Bus("Mercedes-Benz", "Tourismo", 20.21, ilia, brigada3, 120);
+        Truck kamaz = new Truck("Камаз", "компас", 12.45, zuric, brigada2, 2.5);
+        Truck zil = new Truck("Зил", "43", 24.12, egor, brigada2, 23.5);
+        Truck man = new Truck("Man", "TGL", 12.45, oleg, brigada2, 13.3);
+
         foma.carryOutMaintenance(bmv);
         foma.carryOutMaintenance(lada);
         misha.carryOutMaintenance(bmv);
         luka.carryOutMaintenance(lada);
         foma.fixTheCar();
-
-        ArrayList<Mechanic>brigada1;
-        brigada1= new ArrayList<>(3);
-        brigada1.add(foma);
-        brigada1.add(misha);
-        System.out.println(brigada1.toString());
-
+        System.out.println(" Бригада 1 " + brigada1.toString());
+        System.out.println(" Бригада 2 " + brigada2.toString());
+        System.out.println(" Бригада 3 " + brigada3.toString());
+        System.out.println(lada);
 
 
 //        System.out.println(" водитель " + boris.getName() + " управляет автомобилем " + mercedes + " и будет участвовать в заезде. ");

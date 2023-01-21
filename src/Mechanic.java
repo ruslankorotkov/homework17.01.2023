@@ -6,6 +6,7 @@ import java.util.Queue;
 public class Mechanic<A extends Transport> {
     private String nameMechanic;
     private String companyWork;
+
     public Mechanic(String nameMechanic, String companyWork, String accessToWork) {
         this.nameMechanic = nameMechanic;
         this.companyWork = companyWork;
@@ -20,13 +21,13 @@ public class Mechanic<A extends Transport> {
 
     public void carryOutMaintenance(A transport) {
         queue.offer(transport);
-        System.out.println(" Провести техобслуживание. " + transport.getBrand() + " Механик " + getNameMechanic()+ " Осматривает ");
+        System.out.println(" Провести техобслуживание. " + transport.getBrand() + " Механик " + getNameMechanic() + " Осматривает ");
     }
 
     public void fixTheCar() {
         A transport = queue.poll();
         if (transport != null) {
-            System.out.println(" Починить машину. " + transport.getBrand()+" Механик "+ getNameMechanic()+ " Ремонтирует ");
+            System.out.println(" Починить машину. " + transport.getBrand() + " Механик " + getNameMechanic() + " Ремонтирует ");
             fixTheCar();
         } else {
             System.out.println(" Очередь пуста ");
@@ -59,11 +60,10 @@ public class Mechanic<A extends Transport> {
 
     @Override
     public String toString() {
-        return "Mechanic{" +
-                "nameMechanic='" + nameMechanic + '\'' +
-                ", companyWork='" + companyWork + '\'' +
-                ", accessToWork='" + accessToWork + '\'' +
-                ", transport=" + transport +
-                '}';
+        return " Механик-" +
+                " имя и фамилия: " + nameMechanic +
+                ", компания, в которой он работает: " + companyWork +
+                ", деятельность: " + accessToWork
+                ;
     }
 }

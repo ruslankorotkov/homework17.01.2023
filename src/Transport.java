@@ -83,10 +83,11 @@ public abstract class Transport<T extends Driver> implements Competing {
     @Override
     public String toString() {
         return " Транспортное средство: " +
-                " марка: " + brand + '\'' +
-                ", модель: " + model + '\'' +
+                " марка: " + brand +
+                ", модель: " + model +
                 ", объём двигателя: " + engineVolume +
                 ", водитель: " + driver +
-                ' ';
+                ", механики: " + mechanics
+                ;
     }
 }
