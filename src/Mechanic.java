@@ -1,37 +1,36 @@
+
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Queue;
 
 public class Mechanic<A extends Transport> {
     private String nameMechanic;
     private String companyWork;
+    public Mechanic(String nameMechanic, String companyWork, String accessToWork) {
+        this.nameMechanic = nameMechanic;
+        this.companyWork = companyWork;
+        this.accessToWork = accessToWork;
+    }
+
     private String accessToWork;
     private A transport;
 
+    private Queue<A> queue = new ArrayDeque<>(7);
 
-    public Mechanic(String nameMechanic, String companyWork, String accessToWork, A transport) {
-        if (nameMechanic != null && !nameMechanic.isEmpty() && !nameMechanic.isBlank()) {
-            this.nameMechanic = nameMechanic;
-        } else {
-            this.nameMechanic = "default";
-        }
-        if (companyWork != null && !companyWork.isEmpty() && !companyWork.isBlank()) {
-            this.companyWork = companyWork;
-        } else {
-            this.companyWork = "default";
-        }
-        if (accessToWork != null && !accessToWork.isEmpty() && !accessToWork.isBlank()) {
-            this.accessToWork = accessToWork;
-        } else {
-            this.accessToWork = "default";
-        }
-        setTransport(transport);
-    }
 
-    public void carryOutMaintenance() {
-        System.out.println(" Провести техобслуживание. ");
+    public void carryOutMaintenance(A transport) {
+        queue.offer(transport);
+        System.out.println(" Провести техобслуживание. " + transport.getBrand() + " Механик " + getNameMechanic()+ " Осматривает ");
     }
 
     public void fixTheCar() {
-        System.out.println(" Починить машину. ");
+        A transport = queue.poll();
+        if (transport != null) {
+            System.out.println(" Починить машину. " + transport.getBrand()+" Механик "+ getNameMechanic()+ " Ремонтирует ");
+            fixTheCar();
+        } else {
+            System.out.println(" Очередь пуста ");
+        }
     }
 
     public String getNameMechanic() {
@@ -58,20 +57,13 @@ public class Mechanic<A extends Transport> {
         this.accessToWork = accessToWork;
     }
 
-    public A getTransport() {
-        return transport;
-    }
-
-    public void setTransport(A transport) {
-        this.transport = transport;
-    }
-
     @Override
     public String toString() {
-        return " Механик -" +
-                " имя и фамилия: " + nameMechanic +
-                ", компания, в которой он работает: " + companyWork +
-                ", допуск: " + accessToWork +
-                ", он ремонтирует: " + getTransport();
+        return "Mechanic{" +
+                "nameMechanic='" + nameMechanic + '\'' +
+                ", companyWork='" + companyWork + '\'' +
+                ", accessToWork='" + accessToWork + '\'' +
+                ", transport=" + transport +
+                '}';
     }
 }

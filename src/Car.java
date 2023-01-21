@@ -25,8 +25,8 @@ public class Car extends Transport<DriverB> {
 
     private BodyType bodyType;
 
-    public Car(String brand, String model, double engineVolume, DriverB driver, BodyType bodyType) {
-        super(brand, model, engineVolume, driver);
+    public Car(String brand, String model, double engineVolume, DriverB driver,ArrayList<Mechanic> mechanics,BodyType bodyType) {
+        super(brand, model, engineVolume, driver,mechanics);
         this.bodyType = bodyType;
     }
 
