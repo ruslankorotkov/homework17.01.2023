@@ -54,13 +54,12 @@ public class Bus extends Transport<DriverD> {
 
     @Override
     public void diagnosed() {
-        throw new RuntimeException(" Автобусы диагностику проходить не могут ");
+        throw new RuntimeException(" Автобусы диагностику проходить не могут.   Нарушитель "+getBrand());
     }
 
     @Override
     public void pitStop() {
         System.out.println(" ПИТ-СТОП у автобуса. " + getBrand());
-
     }
 
     @Override

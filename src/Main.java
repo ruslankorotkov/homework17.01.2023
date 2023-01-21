@@ -39,7 +39,7 @@ public class Main {
 //        audi.printType();
 //        kamaz.printInfo();
 //        kamaz.printType();
-        autoDiagnosed(audi, kamaz, paz);
+        autoDiagnosed(audi, kamaz, paz,ural,kia);
         rightsCheckDrivers(vova, oleg, oleg, nikita, boris, ilia);
         getMechList(luka, foma, petr, misha);
         getDriversList(ivan, shuric, egor, nikita, artur, ilia, boris, nik, oleg, vova, zuric);
@@ -80,6 +80,7 @@ public class Main {
     }
 
     public static void autoDiagnosed(Transport... auto) {
+        System.out.println(" Прохождение машинами диагностики ");
         for (Transport element : auto) {
             try {
                 element.diagnosed();
@@ -94,6 +95,7 @@ public class Main {
 
     public static void rightsCheckDrivers(Driver... driver) {
         int count = 0;
+        System.out.println(" Прохождение проверки прав ");
         try {
             for (Driver element : driver) {
                 element.isDriverLicense();
