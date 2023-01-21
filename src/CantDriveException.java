@@ -8,6 +8,5 @@ public class CantDriveException extends Exception {
     public CantDriveException(String message, Driver driver) {
         super(message);
         this.driver = driver;
-
     }
 }

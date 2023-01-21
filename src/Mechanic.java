@@ -1,11 +1,13 @@
 import java.util.ArrayList;
 
-public class Mechanic<Transport> {
+public class Mechanic<A extends Transport> {
     private String nameMechanic;
     private String companyWork;
     private String accessToWork;
+    private A transport;
 
-    public Mechanic(String nameMechanic, String companyWork, String accessToWork) {
+
+    public Mechanic(String nameMechanic, String companyWork, String accessToWork, A transport) {
         if (nameMechanic != null && !nameMechanic.isEmpty() && !nameMechanic.isBlank()) {
             this.nameMechanic = nameMechanic;
         } else {
@@ -21,6 +23,7 @@ public class Mechanic<Transport> {
         } else {
             this.accessToWork = "default";
         }
+        setTransport(transport);
     }
 
     public void carryOutMaintenance() {
@@ -55,11 +58,20 @@ public class Mechanic<Transport> {
         this.accessToWork = accessToWork;
     }
 
+    public A getTransport() {
+        return transport;
+    }
+
+    public void setTransport(A transport) {
+        this.transport = transport;
+    }
+
     @Override
     public String toString() {
         return " Механик -" +
                 " имя и фамилия: " + nameMechanic +
-                ", компания, в которой он работает:" + companyWork +
-                ", допуск: " + accessToWork;
+                ", компания, в которой он работает: " + companyWork +
+                ", допуск: " + accessToWork +
+                ", он ремонтирует: " + getTransport();
     }
 }

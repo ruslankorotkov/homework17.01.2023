@@ -21,8 +21,8 @@ public class Bus extends Transport<DriverD> {
 
     private PassengerCapacity places;
 
-    public Bus(String brand, String model, double engineVolume, DriverD driver, Mechanic mechanic, Integer places) {
-        super(brand, model, engineVolume, driver, mechanic);
+    public Bus(String brand, String model, double engineVolume, DriverD driver, Integer places) {
+        super(brand, model, engineVolume, driver);
         if (places <= 10) {
             this.places = PassengerCapacity.EXTRA_SMALL;
         } else if (places <= 25) {

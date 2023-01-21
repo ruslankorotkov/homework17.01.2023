@@ -4,7 +4,6 @@ public abstract class Driver {
     private String experience;
 
 
-
     public Driver(String name, boolean driverLicense, String experience) {
         if (name == null || name.isEmpty() || name.isBlank()) {
             this.name = "default";
@@ -42,9 +41,10 @@ public abstract class Driver {
     public abstract void stopMove();
 
     public abstract void refuel();
+
     public boolean isDriverLicense() throws CantDriveException {
         if (!driverLicense) {
-            throw new CantDriveException(" Необходимо указать тип прав! .",this);
+            throw new CantDriveException(" Необходимо указать тип прав! .", this);
         }
         return driverLicense;
     }
@@ -59,7 +59,6 @@ public abstract class Driver {
                 " ИМЯ: " + name +
                 ", ПРАВА КАТЕГОРИИ:" + driverLicense +
                 ", СТАЖ:" + experience;
-
     }
 }
 
